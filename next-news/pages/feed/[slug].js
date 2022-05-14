@@ -1,3 +1,4 @@
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../../styles/Feed.module.css';
@@ -85,12 +86,12 @@ export const getServerSideProps = async pageContext => {
   }
 
   const apiResponse = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&pageSize=5&page=${pageNumber}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_NEWS_KEY}`,
-      },
-    },
+    `https://newsapi.org/v2/top-headlines?country=us&pageSize=5&page=${pageNumber}&apiKey=603d868f72384534a5276c1b725d97c2`
+    // {
+    //   // headers: {
+    //   //   Authorization: `Bearer ${process.env.NEXT_PUBLIC_NEWS_KEY}`,
+    //   // },
+    // },
   ).then(res => res.json());
 
   const { articles } = apiResponse;
